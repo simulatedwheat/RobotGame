@@ -1483,8 +1483,8 @@ GameObject:
   - component: {fileID: 338906663}
   - component: {fileID: 338906662}
   m_Layer: 0
-  m_Name: Square (2)
-  m_TagString: Untagged
+  m_Name: Conveyor1
+  m_TagString: ConveyorNorth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1700,9 +1700,10 @@ GameObject:
   - component: {fileID: 359008513}
   - component: {fileID: 359008515}
   - component: {fileID: 359008514}
+  - component: {fileID: 359008516}
   m_Layer: 0
-  m_Name: Square (2)
-  m_TagString: Untagged
+  m_Name: Conveyor1(2)
+  m_TagString: ConveyorNorth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1788,7 +1789,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 59c575902beb7a2698ccc89790ec659a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1798,6 +1799,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &359008516
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359008512}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &372831510
 GameObject:
   m_ObjectHideFlags: 0
@@ -8492,8 +8514,8 @@ GameObject:
   - component: {fileID: 1308990164}
   - component: {fileID: 1308990163}
   m_Layer: 0
-  m_Name: Square (2)
-  m_TagString: Untagged
+  m_Name: Conveyor1(1)
+  m_TagString: ConveyorNorth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8579,7 +8601,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 59c575902beb7a2698ccc89790ec659a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8928,7 +8950,8 @@ GameObject:
   - component: {fileID: 1411517775}
   - component: {fileID: 1411517777}
   - component: {fileID: 1411517774}
-  m_Layer: 4
+  - component: {fileID: 1411517778}
+  m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8948,8 +8971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 10
+  ConveyorSpeed: 10
   DirectionCount: 0
-  FacingNorth: 1
   pos: {x: 0, y: 0, z: 0}
 --- !u!212 &1411517775
 SpriteRenderer:
@@ -9010,7 +9033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411517773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.48, y: -4.55, z: 0}
+  m_LocalPosition: {x: 4.5, y: -0.55, z: 0}
   m_LocalScale: {x: 0.23179695, y: 0.152656, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9030,13 +9053,45 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
+--- !u!68 &1411517778
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411517773}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.0017908812, y: 1.6812619}
+  - {x: -1.2519934, y: 0.24906081}
+  - {x: -1.3877273, y: -0.28799316}
+  - {x: -1.3855076, y: -0.6060762}
+  - {x: -1.2847698, y: -0.88662905}
+  - {x: -0.9318789, y: -1.387068}
+  - {x: 0.041669607, y: -1.7716526}
+  - {x: 0.7427529, y: -1.5349177}
+  - {x: 1.2306329, y: -1.030218}
+  - {x: 1.4081532, y: -0.37477002}
+  - {x: 1.2841944, y: 0.13427456}
+  - {x: 0.022022486, y: 1.6993413}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1422216047
 GameObject:
   m_ObjectHideFlags: 0

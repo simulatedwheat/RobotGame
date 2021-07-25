@@ -6,17 +6,14 @@ public class Player1Controller : MonoBehaviour
 {
     // Movement Variables
     public float MovementSpeed = 10;
+    public float ConveyorSpeed = 3;
     public int DirectionCount = 0;
     private Rigidbody2D _rigidbody;         // Rigidbody variable
-
-    public bool FacingNorth = true;
 
     public Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
-        pos = transform.position;
-        Debug.Log(pos);
         _rigidbody = GetComponent<Rigidbody2D>();   // Get the rigidbody2d component
 
     }
@@ -25,6 +22,15 @@ public class Player1Controller : MonoBehaviour
     void Update()
     {
         Move();        
+    }
+
+    void OnCollisionEnter2D(Collision2D collisionInfo)
+    {
+        var moveVertical = 5f;
+        if(collisionInfo.collider.tag == "ConveyorNorth")
+        {
+            transform.position += new Vector3(0, moveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+        }
     }
 
     void Move ()
@@ -81,13 +87,11 @@ public class Player1Controller : MonoBehaviour
         {
             RotateRight();
             var rot = transform.rotation;
-            Debug.Log(DirectionCount);
         }
         if (Input.GetKeyDown("left"))
         {
             RotateLeft();
             pos = transform.position;
-            Debug.Log(DirectionCount);
         }
     }
     void RotateRight()
