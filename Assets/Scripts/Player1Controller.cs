@@ -5,17 +5,18 @@ using UnityEngine;
 public class Player1Controller : MonoBehaviour
 {
     // Movement Variables
-    public float MovementSpeed = 10;        // The players mevemnt speed
-    private bool FacingNorth = true;        // Boolean for facing north
-    private bool FacingWest = false;        // Boolean for facing West
-    private bool FacingEast = false;        // Boolean for facing East
-    private bool FacingSouth = false;       // Boolean for facing South
-
+    public float MovementSpeed = 10;
+    public int DirectionCount = 0;
     private Rigidbody2D _rigidbody;         // Rigidbody variable
 
+    public bool FacingNorth = true;
+
+    public Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
+        pos = transform.position;
+        Debug.Log(pos);
         _rigidbody = GetComponent<Rigidbody2D>();   // Get the rigidbody2d component
 
     }
@@ -23,42 +24,80 @@ public class Player1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var moveNorth = Input.GetButtonDown("up");
-        var moveSouth = Input.GetButtonDown("down");
-        var moveWest = Input.GetButtonDown("left");
-        var moveEast = Input.GetButtonDown("right");
-
-
-
-        
+        Move();        
     }
 
-    void Move1 ()
+    void Move ()
     {
+        var moveVertical = 5f;
+        if (DirectionCount == 4 || DirectionCount == -4)
+            {
+                DirectionCount = 0;
+            }
+        if (Input.GetKeyDown("up"))
+        {
+            if (DirectionCount == 0)
+            {
+                transform.position += new Vector3(0, moveVertical, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            else if (DirectionCount == 1 || DirectionCount == -3) 
+            {
+                transform.position += new Vector3(moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            else if (DirectionCount == 2 || DirectionCount == -2)
+            {
+                transform.position += new Vector3(0, -moveVertical, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            else if (DirectionCount == 3 || DirectionCount == -1)
+            {
+                transform.position += new Vector3(-moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            
+        }
         
-    }
-    void RotateLeft () 
-    {
-        if (FacingNorth)
+        if (Input.GetKeyDown("down"))
         {
-            FacingNorth = false;
-            FacingWest = true;
-        }
-        if (FacingEast)
-        {
-            FacingEast = false;
-            FacingNorth = true;
-        }
-        if (FacingSouth)
-        {
-            FacingSouth = false;
-            FacingEast = true;
-        }
-        if (FacingWest)
-        {
-            FacingWest = false;
-            FacingSouth = true;
-        }
-    }
+            if (DirectionCount == 0)
+            {
+                transform.position += new Vector3(0, -moveVertical, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            else if (DirectionCount == 1 || DirectionCount == -3) 
+            {
+                transform.position += new Vector3(-moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            else if (DirectionCount == 2 || DirectionCount == -2)
+            {
+                transform.position += new Vector3(0, moveVertical, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
+            else if (DirectionCount == 3 || DirectionCount == -1)
+            {
+                transform.position += new Vector3(moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
+            }
 
+            
+        }
+        
+        if (Input.GetKeyDown("right"))
+        {
+            RotateRight();
+            var rot = transform.rotation;
+            Debug.Log(DirectionCount);
+        }
+        if (Input.GetKeyDown("left"))
+        {
+            RotateLeft();
+            pos = transform.position;
+            Debug.Log(DirectionCount);
+        }
+    }
+    void RotateRight()
+    {
+        DirectionCount += 1;
+        transform.Rotate(0f, 0f, -90f);
+    }
+    void RotateLeft()
+    {
+        DirectionCount -= 1;
+        transform.Rotate(0f, 0f, 90f);
+    }
 }
