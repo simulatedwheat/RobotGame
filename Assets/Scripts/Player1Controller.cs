@@ -8,6 +8,7 @@ public class Player1Controller : MonoBehaviour
     public float MovementSpeed = 10;
     public float ConveyorSpeed = 3;
     public int DirectionCount = 0;
+
     private Rigidbody2D _rigidbody;         // Rigidbody variable
 
     public Vector3 pos;
@@ -24,14 +25,14 @@ public class Player1Controller : MonoBehaviour
         Move();        
     }
 
-    void OnCollisionEnter2D(Collision2D collisionInfo)
-    {
-        var moveVertical = 5f;
-        if(collisionInfo.collider.tag == "ConveyorNorth")
-        {
-            transform.position += new Vector3(0, moveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
-        }
-    }
+    // void OnCollisionEnter2D(Collision2D collisionInfo)
+    // {
+    //     var moveVertical = 5f;
+    //     if(collisionInfo.collider.tag == "ConveyorNorth")
+    //     {
+    //         transform.position += new Vector3(0, moveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+    //     }
+    // }
 
     void Move ()
     {
@@ -58,6 +59,7 @@ public class Player1Controller : MonoBehaviour
             {
                 transform.position += new Vector3(-moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
             }
+            ConveyorController.moveCount = 0;
             
         }
         
@@ -79,7 +81,7 @@ public class Player1Controller : MonoBehaviour
             {
                 transform.position += new Vector3(moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
             }
-
+            ConveyorController.moveCount = 0;
             
         }
         
@@ -87,11 +89,14 @@ public class Player1Controller : MonoBehaviour
         {
             RotateRight();
             var rot = transform.rotation;
+            ConveyorController.moveCount = 0;
+
         }
         if (Input.GetKeyDown("left"))
         {
             RotateLeft();
             pos = transform.position;
+            ConveyorController.moveCount = 0;
         }
     }
     void RotateRight()
