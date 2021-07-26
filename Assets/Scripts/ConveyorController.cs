@@ -32,4 +32,19 @@ public class ConveyorController : MonoBehaviour
 
         }
     }
+    void OnTriggerStay2D (Collider2D PlayerContact) 
+    {
+        Debug.Log(moveCount);
+        if (moveCount >= 1)
+        {
+            Debug.Log("Player has already been moved");
+        }
+        else if (PlayerContact.tag == "Player" && (moveCount < 1)){
+            PlayerTransform = GameObject.Find(PlayerContact.name).transform;
+            PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+            moveCount += 1;
+            Debug.Log(moveCount);
+
+        }
+    }
 }
