@@ -6,7 +6,7 @@ public class ConveyorController : MonoBehaviour
 {
     public Transform PlayerTransform; 
     public float ConveyorSpeed = 10;
-    public float MoveVertical = 5f;
+    public float MoveVertical = 1.25f;
     public static int moveCount = 0;
 
     //public int moveCount;
@@ -26,7 +26,7 @@ public class ConveyorController : MonoBehaviour
         }
         else if (PlayerContact.tag == "Player" && (moveCount < 1)){
             PlayerTransform = GameObject.Find(PlayerContact.name).transform;
-            PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+            StartCoroutine(ConveyorMove());
             moveCount += 1;
             Debug.Log(moveCount);
 
@@ -41,10 +41,23 @@ public class ConveyorController : MonoBehaviour
         }
         else if (PlayerContact.tag == "Player" && (moveCount < 1)){
             PlayerTransform = GameObject.Find(PlayerContact.name).transform;
-            PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+            StartCoroutine(ConveyorMove());
             moveCount += 1;
             Debug.Log(moveCount);
 
         }
+    }
+
+    IEnumerator ConveyorMove()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+        yield return new WaitForSeconds(0.15f);
+        PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+        yield return new WaitForSeconds(0.15f);
+        PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+        yield return new WaitForSeconds(0.15f);
+        PlayerTransform.position += new Vector3(0, MoveVertical, 0) * Time.fixedDeltaTime * ConveyorSpeed;
+
     }
 }

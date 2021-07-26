@@ -7,6 +7,8 @@ public class Player1Controller : MonoBehaviour
     // Movement Variables
     public float MovementSpeed = 10;
     public float ConveyorSpeed = 3;
+    public float moveVertical = 5f;
+
     public int DirectionCount = 0;
 
     private Rigidbody2D _rigidbody;         // Rigidbody variable
@@ -36,7 +38,6 @@ public class Player1Controller : MonoBehaviour
 
     void Move ()
     {
-        var moveVertical = 5f;
         if (DirectionCount == 4 || DirectionCount == -4)
             {
                 DirectionCount = 0;
@@ -110,4 +111,6 @@ public class Player1Controller : MonoBehaviour
         ConveyorController.moveCount = 0;
 
     }
+
+    
 }

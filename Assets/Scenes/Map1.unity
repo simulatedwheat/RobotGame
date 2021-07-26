@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
   ConveyorSpeed: 10
-  MoveVertical: 5
+  MoveVertical: 1.25
 --- !u!95 &338906665
 Animator:
   serializedVersion: 3
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
   ConveyorSpeed: 10
-  MoveVertical: 5
+  MoveVertical: 1.25
 --- !u!95 &359008518
 Animator:
   serializedVersion: 3
@@ -8851,7 +8851,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0284975, y: 1.2150259}
+    oldSize: {x: 1.1398964, y: 1.1632124}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -9273,7 +9273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
   ConveyorSpeed: 10
-  MoveVertical: 5
+  MoveVertical: 1.25
 --- !u!95 &1308990166
 Animator:
   serializedVersion: 3
@@ -9654,6 +9654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 10
   ConveyorSpeed: 10
+  moveVertical: 5
   DirectionCount: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!212 &1411517775
@@ -11501,7 +11502,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0284975, y: 1.2150259}
+    oldSize: {x: 1.1398964, y: 1.1683937}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
