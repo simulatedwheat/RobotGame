@@ -89,24 +89,25 @@ public class Player1Controller : MonoBehaviour
         {
             RotateRight();
             var rot = transform.rotation;
-            ConveyorController.moveCount = 0;
-
         }
         if (Input.GetKeyDown("left"))
         {
             RotateLeft();
             pos = transform.position;
-            ConveyorController.moveCount = 0;
         }
     }
     void RotateRight()
     {
         DirectionCount += 1;
         transform.Rotate(0f, 0f, -90f);
+        ConveyorController.moveCount = 0;
+
     }
     void RotateLeft()
     {
         DirectionCount -= 1;
         transform.Rotate(0f, 0f, 90f);
+        ConveyorController.moveCount = 0;
+
     }
 }

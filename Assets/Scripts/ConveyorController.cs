@@ -19,7 +19,7 @@ public class ConveyorController : MonoBehaviour
     
     void OnTriggerEnter2D (Collider2D PlayerContact) 
     {
-        Debug.Log(PlayerContact.name);
+        Debug.Log(moveCount);
         if (moveCount >= 1)
         {
             Debug.Log("Player has already been moved");
