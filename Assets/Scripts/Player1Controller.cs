@@ -9,7 +9,7 @@ public class Player1Controller : MonoBehaviour
     public float ConveyorSpeed = 3;
     public float moveVertical = 5f;
 
-    public int DirectionCount = 0;
+    public static int DirectionCount = 0;
 
     private Rigidbody2D _rigidbody;         // Rigidbody variable
 
@@ -60,8 +60,13 @@ public class Player1Controller : MonoBehaviour
             {
                 transform.position += new Vector3(-moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
             }
-            ConveyorController.moveCount = 0;
-            
+            // Reset the conveyor moveCount after every move
+            ConveyorNorthController.moveCount = 0;
+            ConveyorWestController.moveCount = 0;
+            ConveyorEastController.moveCount = 0;
+            ConveyorSouthController.moveCount = 0; 
+            ConveyorRotLeftWestController.moveCount = 0;        
+            ConveyorRotRightEastController.moveCount = 0;        
         }
         
         if (Input.GetKeyDown("down"))
@@ -82,8 +87,13 @@ public class Player1Controller : MonoBehaviour
             {
                 transform.position += new Vector3(moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
             }
-            ConveyorController.moveCount = 0;
-            
+            // Reset the conveyor moveCount after every move
+            ConveyorNorthController.moveCount = 0;
+            ConveyorWestController.moveCount = 0;
+            ConveyorEastController.moveCount = 0;
+            ConveyorSouthController.moveCount = 0;     
+            ConveyorRotLeftWestController.moveCount = 0;        
+            ConveyorRotRightEastController.moveCount = 0;        
         }
         
         if (Input.GetKeyDown("right"))
@@ -101,15 +111,25 @@ public class Player1Controller : MonoBehaviour
     {
         DirectionCount += 1;
         transform.Rotate(0f, 0f, -90f);
-        ConveyorController.moveCount = 0;
-
+        // Reset the conveyor moveCount after every move
+        ConveyorNorthController.moveCount = 0;
+        ConveyorWestController.moveCount = 0;
+        ConveyorEastController.moveCount = 0;
+        ConveyorSouthController.moveCount = 0;
+        ConveyorRotLeftWestController.moveCount = 0;        
+        ConveyorRotRightEastController.moveCount = 0;        
     }
     void RotateLeft()
     {
         DirectionCount -= 1;
         transform.Rotate(0f, 0f, 90f);
-        ConveyorController.moveCount = 0;
-
+        // Reset the conveyor moveCount after every move
+        ConveyorNorthController.moveCount = 0;
+        ConveyorWestController.moveCount = 0;
+        ConveyorEastController.moveCount = 0;
+        ConveyorSouthController.moveCount = 0;
+        ConveyorRotLeftWestController.moveCount = 0;        
+        ConveyorRotRightEastController.moveCount = 0;        
     }
 
     

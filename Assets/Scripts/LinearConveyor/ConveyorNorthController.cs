@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorController : MonoBehaviour
+public class ConveyorNorthController : MonoBehaviour
 {
     public Transform PlayerTransform; 
     public float ConveyorSpeed = 10;
