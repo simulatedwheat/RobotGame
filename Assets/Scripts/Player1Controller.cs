@@ -61,12 +61,7 @@ public class Player1Controller : MonoBehaviour
                 transform.position += new Vector3(-moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
             }
             // Reset the conveyor moveCount after every move
-            ConveyorNorthController.moveCount = 0;
-            ConveyorWestController.moveCount = 0;
-            ConveyorEastController.moveCount = 0;
-            ConveyorSouthController.moveCount = 0; 
-            ConveyorRotLeftWestController.moveCount = 0;        
-            ConveyorRotRightEastController.moveCount = 0;        
+            moveCount(); 
         }
         
         if (Input.GetKeyDown("down"))
@@ -88,12 +83,7 @@ public class Player1Controller : MonoBehaviour
                 transform.position += new Vector3(moveVertical, 0, 0) * Time.fixedDeltaTime * MovementSpeed;
             }
             // Reset the conveyor moveCount after every move
-            ConveyorNorthController.moveCount = 0;
-            ConveyorWestController.moveCount = 0;
-            ConveyorEastController.moveCount = 0;
-            ConveyorSouthController.moveCount = 0;     
-            ConveyorRotLeftWestController.moveCount = 0;        
-            ConveyorRotRightEastController.moveCount = 0;        
+            moveCount();
         }
         
         if (Input.GetKeyDown("right"))
@@ -112,25 +102,25 @@ public class Player1Controller : MonoBehaviour
         DirectionCount += 1;
         transform.Rotate(0f, 0f, -90f);
         // Reset the conveyor moveCount after every move
-        ConveyorNorthController.moveCount = 0;
-        ConveyorWestController.moveCount = 0;
-        ConveyorEastController.moveCount = 0;
-        ConveyorSouthController.moveCount = 0;
-        ConveyorRotLeftWestController.moveCount = 0;        
-        ConveyorRotRightEastController.moveCount = 0;        
+        moveCount(); 
     }
     void RotateLeft()
     {
         DirectionCount -= 1;
         transform.Rotate(0f, 0f, 90f);
         // Reset the conveyor moveCount after every move
+        moveCount();
+    }
+
+    void moveCount()
+    {
         ConveyorNorthController.moveCount = 0;
         ConveyorWestController.moveCount = 0;
         ConveyorEastController.moveCount = 0;
         ConveyorSouthController.moveCount = 0;
         ConveyorRotLeftWestController.moveCount = 0;        
-        ConveyorRotRightEastController.moveCount = 0;        
+        ConveyorRotRightEastController.moveCount = 0;    
+        ConveyorRotRightNorthController.moveCount = 0; 
     }
-
     
 }
