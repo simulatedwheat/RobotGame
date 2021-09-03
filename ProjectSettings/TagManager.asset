@@ -13,6 +13,10 @@ TagManager:
   - ConveyorRotLeftWest
   - ConveyorRotRightEast
   - ConveyorRotRightNorth
+  - ConveyorRotRightSouth
+  - ConveyorRotRightWest
+  - ConveyorRotLeftEast
+  - ConveyorRotLeftNorth
   layers:
   - Default
   - TransparentFX
