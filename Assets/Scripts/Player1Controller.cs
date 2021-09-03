@@ -114,13 +114,23 @@ public class Player1Controller : MonoBehaviour
 
     void moveCount()
     {
+        // Linear Conveyors
         ConveyorNorthController.moveCount = 0;
         ConveyorWestController.moveCount = 0;
         ConveyorEastController.moveCount = 0;
         ConveyorSouthController.moveCount = 0;
+
+        // Rotation Left Conveyors
         ConveyorRotLeftWestController.moveCount = 0;        
-        ConveyorRotRightEastController.moveCount = 0;    
+        
+        // Rotation Right Conveyors
+        ConveyorRotRightEastController.moveCount = 0;  
         ConveyorRotRightNorthController.moveCount = 0; 
+        ConveyorRotRightSouthController.moveCount = 0; 
+        ConveyorRotRightWestController.moveCount = 0; 
+        
+
+
     }
     
 }
